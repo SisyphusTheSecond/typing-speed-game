@@ -13,6 +13,47 @@
     <title>Typing Speed Game</title>
 </head>
 <body>
-    
+    <header class="header">
+        <h1 class="title">Typing Game</h1>
+    </header>
+    <main class="main">
+        <div id="settings" class="settings">
+            <form class="settings-form">
+                <div>
+                    <label for="difficulty"><h3>Difficulty</h3></label>
+                    <select id="difficulty">
+                        <option value="easy">Sahel</option>
+                        <option value="medium">Chwiya</option>
+                        <option value="hard">Stage el Wehch</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="container">
+            <h2 class="question">Who can beat my score?</h2>
+            <h3 class="message">Type The Following: </h3>
+            <h1 id="word"></h1>
+            <input type="text" id="text" autocomplete="off" placeholder="Type the word here ... ">
+
+            <p class="time-container">Time left: <span id="time">10s</span></p>
+            <p class="score-container">Score: <span id="score">0</span></p>
+            <div id="end-game-container" class="end-game-container"></div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>
+            Copyright ©
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            Yacine Allal / Oussama Safar Zitoun
+        </p>
+        <a href="http://github.com/SisyphusTheSecond" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
