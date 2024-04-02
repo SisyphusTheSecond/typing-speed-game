@@ -151,8 +151,7 @@ function gameOver() {
     endGameElement.innerHTML = `
     <h1>Time ran out</h1>
     <p>Your final score is: ${score}</p>
-    <button onclick="location.reload()" style="
-    background: #222831; color: #ddd;>Reload</button>`;
+    <button id="reload-button" onclick="reloadGame()">Reload</button>`;
 
     endGameElement.style.display = "flex";
 }
@@ -186,3 +185,8 @@ difficultySelect.addEventListener("change", (e) => {
     difficulty = e.target.value;
     localStorage.setItem("difficulty", difficulty);
 })
+
+// Function to reload the game
+function reloadGame() {
+    location.reload();
+}
