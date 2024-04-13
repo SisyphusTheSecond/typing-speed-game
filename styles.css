@@ -65,6 +65,9 @@ body {
     width: 50%; 
 }
 
+
+
+
 label {
     font-size: 20px;
     color: var(--primary-light);
@@ -72,7 +75,7 @@ label {
 
 select {
     width: 100%; 
-    max-width: 200px; 
+    max-width: 200px;  
     padding: 10px;
     margin-top: 10px;
     background-color: var(--primary-yellow); 
@@ -84,12 +87,12 @@ select {
     text-align: center;
 }
 
-.container {
-    background-color: var(--secondary-dark); 
+.container { 
+    background-color: var(--header); 
     padding: 30px;
     border-radius: 20px;
     color: var(--primary-light);
-    position: relative;
+    position: relative; 
     text-align: center;
     max-width: 600px;
     width: 100%; 
@@ -101,6 +104,7 @@ select {
     margin-bottom: 20px;
     color: var(--primary-light);
 }
+
 
 input {
     border: 0;
@@ -129,7 +133,18 @@ input {
     color: var(--primary-light);
     padding: 20px;
 }
-  
+
+#start-btn {
+    color: var(--primary-dark);
+    background-color: var(--primary-yellow);
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 150px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .end-game-container {
     background-color: inherit;
     border-radius: 20px;
@@ -146,20 +161,21 @@ input {
 }
 
 #reload-button {
-    color: var(--primary-light);
-    background-color: var(--primary-dark);
+    color: var(--primary-dark);
+    background-color: var(--primary-yellow);
     margin-top: 20px;
     padding: 15px;
-    border-radius: 4px;
+    border-radius: 10px;
     width: 150px;
     font-size: 20px;
     cursor: pointer;
+    font-weight: bold;
+    border: 0px;
 }
 
 #reload-button:hover {
-    background-color: var(--primary-yellow);
-    color: var(--primary-dark);
-
+    background-color: var(--secondary-dark);
+    color: var(--primary-light);
 }
 
 /* FOOTER */

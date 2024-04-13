@@ -7,116 +7,41 @@ const endGameElement = document.getElementById("end-game-container");
 const settings = document.getElementById("settings");
 const difficultySelect = document.getElementById("difficulty");
 
-// list of words for game
+// List of words for game
 const words = [
-  "came",
-  "come",
-  "letter",
-  "end",
-  "I",
-  "all",
-  "number",
-  "oil",
-  "within",
-  "now",
-  "right",
-  "feet",
-  "leave",
-  "what",
-  "now",
-  "fall",
-  "came",
-  "live",
-  "year",
-  "about",
-  "got",
-  "came",
-  "set",
-  "were",
-  "follow",
-  "study",
-  "day",
-  "eye",
-  "over",
-  "why",
-  "why",
-  "talk",
-  "soon",
-  "because",
-  "eye",
-  "watch",
-  "year",
-  "her",
-  "any",
-  "by",
-  "I",
-  "both",
-  "around",
-  "book",
-  "line",
-  "mother",
-  "open",
-  "now",
-  "that",
-  "mile",
-  "go",
-  "by",
-  "found",
-  "said",
-  "eye",
-  "come",
-  "so",
-  "place",
-  "food",
-  "got",
-  "city",
-  "always",
-  "these",
-  "any",
-  "use",
-  "been",
-  "was",
-  "read",
-  "their",
-  "without",
-  "as",
-  "change",
-  "leave",
-  "can",
-  "they",
-  "those",
-  "eat",
-  "never",
-  "no",
-  "eat",
-  "story",
+    "came", "come", "letter", "end", "I", "all", "number", "oil", "within", "now",
+    "right", "feet", "leave", "what", "now", "fall", "came", "live", "year", "about",
+    "got", "came", "set", "were", "follow", "study", "day", "eye", "over", "why", "why",
+    "talk", "soon", "because", "eye", "watch", "year", "her", "any", "by", "I", "both",
+    "around", "book", "line", "mother", "open", "now", "that", "mile", "go", "by", "found",
+    "said", "eye", "come", "so", "place", "food", "got", "city", "always", "these", "any",
+    "use", "been", "was", "read", "their", "without", "as", "change", "leave", "can", "they",
+    "those", "eat", "never", "no", "eat", "story"
 ];
 
-// init word
+// Init word
 let randomWord;
 
-// Inti score
-let score = 0;
+// Init score
+let score = 0; 
+ 
 
 // Init time
 let time = 10;
 
 // Set difficulty 
-let difficulty = localStorage.getItem("difficulty") !== null ? localStorage.getItem("difficulty") : "medium";
+let difficulty = localStorage.getItem("difficulty") || "medium";
 
-// set difficulty select value
-difficultySelect.value =
-  localStorage.getItem("difficulty") !== null
-    ? localStorage.getItem("difficulty")
-    : "medium";
+// Set difficulty select value
+difficultySelect.value = localStorage.getItem("difficulty") || "medium";
 
-// focus on text on start
+// Focus on text on start
 text.focus();
 
-// count down
-const timeInterval = setInterval(updateTime, 1000);
+// Countdown
+let timeInterval;
 
-// Random words generator from Array
+// Random words generator from array
 function getRandomWord() {
     return words[Math.floor(Math.random() * words.length)];
 }
@@ -127,26 +52,27 @@ function addWordToDOM() {
     word.innerHTML = randomWord;
 }
 
-// update score
+// Update score
 function updateScore() {
     score++;
     scoreElement.innerHTML = score;
+    
 }
 
-// update time
+// Update time
 function updateTime() {
     time--;
-    timeElement.innerHTML = time + "s";
-  
-    if (time === 0) {
-      clearInterval(timeInterval);
-  
-      //   game over
-      gameOver();
+    timeElement.innerHTML = time + "s"; 
+
+    if (time === 0) {   
+        clearInterval(timeInterval);   
+
+        // Game over
+        gameOver();
     }
 }
 
-// show game over
+// Show game over
 function gameOver() {
     endGameElement.innerHTML = `
     <h1>Time ran out</h1>
@@ -156,11 +82,22 @@ function gameOver() {
     endGameElement.style.display = "flex";
 }
 
-addWordToDOM();
+// Function to start the game
+function startGame() { 
+    addWordToDOM();
+    timeInterval = setInterval(updateTime, 1000);
+}
 
-// Typing Event 
+document.getElementById("start-btn").addEventListener("click", function() {
+            
+            startGame();
+            document.getElementById("text").focus();
+            
+        });
+
+// Typing event 
 text.addEventListener("input", (e) => {
-    const insertedText = e.target.value;
+    const insertedText = e.target.value;  
 
     if (insertedText === randomWord) {
         addWordToDOM();
@@ -177,14 +114,14 @@ text.addEventListener("input", (e) => {
         }
 
         updateTime();
-    }
+    }  
 });
 
-// Setting Select
+// Setting select
 difficultySelect.addEventListener("change", (e) => {
     difficulty = e.target.value;
     localStorage.setItem("difficulty", difficulty);
-})
+});
 
 // Function to reload the game
 function reloadGame() {
