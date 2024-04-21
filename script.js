@@ -9,14 +9,12 @@ const difficultySelect = document.getElementById("difficulty");
 
 // List of words for game
 const words = [
-    "came", "come", "letter", "end", "I", "all", "number", "oil", "within", "now",
-    "right", "feet", "leave", "what", "now", "fall", "came", "live", "year", "about",
-    "got", "came", "set", "were", "follow", "study", "day", "eye", "over", "why", "why",
-    "talk", "soon", "because", "eye", "watch", "year", "her", "any", "by", "I", "both",
-    "around", "book", "line", "mother", "open", "now", "that", "mile", "go", "by", "found",
-    "said", "eye", "come", "so", "place", "food", "got", "city", "always", "these", "any",
-    "use", "been", "was", "read", "their", "without", "as", "change", "leave", "can", "they",
-    "those", "eat", "never", "no", "eat", "story"
+    "yacine", "oussama", "albert", "camus", "sisyphe", "nietzsche", "spinoza", "kafka", "fyodor", "dostoevsky",
+    "voltaire", "candide", "zadig", "ingenu", "stupide", "idiot", "came", "malin", "gentil", "vif",
+    "curieux", "loyal", "creatif", "puissant", "genial", "honnete", "drole", "charmant", "sage", "rapide", "parfait",
+    "kanye", "dahmane", "malade", "interessant", "abel", "cain", "disgrace", "santiago", "elle", "larme", "beau",
+    "marcus", "aurelius", "aristotle", "plato", "manipulative", "estin", "Tabalizt", "ange", "sharp", "divin", "sun tzu",
+    "intergouvernementalisation"
 ];
 
 // Init word
